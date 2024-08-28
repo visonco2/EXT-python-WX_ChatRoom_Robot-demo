@@ -214,7 +214,7 @@ async def 微信推送(message:Dict):
             print("战力查询事件")
             英雄=content.replace(' ', '')
             英雄=英雄.replace('战力查询', '')
-            url="http://api.yaohud.cn/api/v6/wzzl?key=MVGXpOFHJ2L6i2C9QYW&lei=wx&name="+英雄
+            url="http://api.yaohud.cn/api/v6/wzzl?key="替换自己的KEY"&lei=wx&name="+英雄
             async with aiohttp.ClientSession() as session:
                     
                     async with session.get(url=url, timeout=aiohttp.ClientTimeout(total=3),ssl=False) as response:
@@ -227,24 +227,7 @@ async def 微信推送(message:Dict):
                         else:
                             信息 ="指令错误或者没有该英雄。\n正确指令为：战力查询+英雄名称"
                         await 接口.发送消息(信息,from_wxid)
-        # elif "点歌" in content:
-        #     print("点歌事件")
-        #     歌名=content.replace("点歌","")
-        #     await 接口.发送音乐消息(歌名,from_wxid)
-
-        # elif "[CV:at,wxid=wxid_r2eqklptiw5322]" in content:
-        #     print("对话事件")
-            
-        #     # 使用正则表达式提取目标内容
-        #     提取结果 = re.search(r'\[CV:at,wxid=wxid_r2eqklptiw5322\](.*?)$', content).group(1)
-        #     print(提取结果)
-        #     async with aiohttp.ClientSession() as session:
-        #             url = f"http://api.linhun.vip/api/fflt?name={提取结果}&type=text&apiKey=c4c83de18e6506796ceea000db73a8e1"  # 青云客
-        #             async with session.get(url=url, timeout=aiohttp.ClientTimeout(total=30),ssl=False) as response:
-        #                 data = await response.text()
-        #                 # data=json.loads(data)
-        #                 data=" "+data
-        #                 await 接口.发送艾特消息(data,from_wxid, message['data']['final_from_wxid'])
+      
 
         #  随机万能回复
         elif "智障唧唧人菲菲" in content:
